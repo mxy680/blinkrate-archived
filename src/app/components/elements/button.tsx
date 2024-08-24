@@ -7,7 +7,7 @@ const Button = ({ children, variant, ...props }: { children: React.ReactNode, va
     }
     
     return (
-        <RelumeButton className={`button bg-${variant}`} {...props}>
+        <RelumeButton className={`button button-${variant}`} {...props}>
             {children}
         </RelumeButton>
     )
