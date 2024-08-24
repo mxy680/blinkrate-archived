@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --primary-color: #007bff;
+  --primary-hover-color: #0056b3;
+  --secondary-color: #6c757d;
+  --secondary-hover-color: #545b62;
+  --tertiary-color: #6c757d;
+  --tertiary-hover-color: #545b62;
+  --button-border-radius: 0rem;
+}
+
+.button {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  border-radius: var(--button-border-radius);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+/* Background colors */
+.bg-primary {
+  background-color: var(--primary-color);
+}
+
+.bg-primary:hover {
+  background-color: var(--primary-hover-color);
+}
