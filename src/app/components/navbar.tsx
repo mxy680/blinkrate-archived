@@ -1,4 +1,5 @@
 import { RxChevronRight } from "react-icons/rx";
+import Link from 'next/link';
 
 type ImageProps = {
   url?: string;
@@ -39,16 +40,18 @@ export const Navbar = (props: NavbarProps) => {
         >
           {navLinks.map((navLink, index) => (
             <div key={index} className="first:pt-4 lg:first:pt-0">
-              <a href={navLink.url} className="block py-3 text-md lg:px-4 lg:py-2 lg:text-base font-primary hover-underline">
+              <a href={navLink.url} className="block py-3 text-base lg:px-4 lg:py-2 lg:text-md font-primary hover-underline">
                 {navLink.title}
               </a>
             </div>
           ))}
           <div className="mt-6 flex flex-col items-center gap-4 lg:ml-4 lg:mt-0 lg:flex-row">
-            <button className='btn font-primary flex items-center gap-1'>
-              Take the Test
-              <RxChevronRight className='size-6 arrow' />
-            </button>
+            <Link href='/test'>
+              <button className='btn font-primary flex items-center gap-1'>
+                Take the Test
+                <RxChevronRight className='size-6 arrow' />
+              </button>
+            </Link>
           </div>
         </div>
       </div>
