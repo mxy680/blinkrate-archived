@@ -130,3 +130,15 @@ body {
 .social-media-icon:hover {
   transform: scale(1.2);
 }
+
+/* Input Fields */
+.input {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: black;
+  transition: background-color .5s ease;
+}
+
+.input:focus,
+.input:not(:placeholder-shown) {
+  background-color: rgba(255, 255, 255, 0.8);
+}
