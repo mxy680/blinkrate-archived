@@ -3,44 +3,130 @@
 @tailwind utilities;
 
 :root {
-  --primary-color: #007bff;
-  --primary-hover-color: #0056b3;
-  --secondary-color: #6c757d;
-  --secondary-hover-color: #545b62;
-  --tertiary-color: #6c757d;
-  --tertiary-hover-color: #545b62;
-  --button-border-radius: 0rem;
+  --color-dark: #0e5b70;
+  --color-dark-hover: #0c4e5f;
+  --color-medium: #A3D0FF;
+  --color-light: #efedfd;
+  --color-light-hover: #e3e1f7;
+}
+
+/* Background */
+body {
+  background-color: var(--color-light);
+}
+
+.bg-light {
+  background-color: var(--color-light);
+}
+
+.bg-dark {
+  background-color: var(--color-dark);
+}
+
+/* Border */
+.border-light {
+  border-color: var(--color-light);
+}
+
+.border-dark {
+  border-color: var(--color-dark);
+}
+
+/* Text */
+.text-light {
+  color: var(--color-light);
+}
+
+.text-dark {
+  color: var(--color-dark);
+}
+
+/* Hover underline effect */
+.hover-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  width: 80%;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  background-color: var(--color-dark);
+  transition: transform 0.3s ease;
+}
+
+.hover-underline:hover::after {
+  transform: translateX(-50%) scaleX(1);
 }
 
 /* Button */
-.button {
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  border-radius: var(--button-border-radius);
+.btn {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--color-dark);
+  border-radius: 0.5rem;
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.button:hover {
-  transform: translateY(-2px);
+.btn:hover {
+  background-color: var(--color-dark-hover);
 }
 
-.button-primary {
-  background-color: var(--primary-color);
-  color: white;
+.btn-secondary {
+  background-color: var(--color-light);
+  color: var(--color-dark);
 }
 
-.button-primary:hover {
-  background-color: var(--primary-hover-color);
+.btn-secondary:hover {
+  background-color: var(--color-light-hover);
 }
 
-/* Input */
-.input {
-  padding: 0.5rem;
-  border: 1px solid var(--secondary-color);
-  border-radius: 0.25rem;
-  transition: border-color 0.3s ease;
+@keyframes move-arrow {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
-.input:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
+.btn:hover .arrow {
+  animation: move-arrow 0.5s ease-in-out forwards;
+}
+
+/* Literature */
+.literature-modal {
+  background-color: rgb(255, 255, 255, 0.2);
+}
+
+.literature-modal .btn-secondary {
+  background-color: rgb(255, 255, 255, 0.2);
+}
+
+/* Tech */
+.tech-modal img {
+  transition: transform 0.3s ease;
+}
+
+.tech-modal:hover img {
+  transform: scale(1.08);
+}
+
+/* Social Media icons */
+.social-media-icon {
+  transition: transform 0.3s ease;
+}
+
+.social-media-icon:hover {
+  transform: scale(1.2);
 }

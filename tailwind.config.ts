@@ -8,7 +8,12 @@ const config: Config = {
     "./node_modules/@relume_io/relume-ui/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        primary: ["var(--font-cinzel)"],
+        secondary: ["var(--font-libre-baskerville)"],
+      },
+    },
   },
   presets: [require("@relume_io/relume-tailwind")],
   plugins: [],
