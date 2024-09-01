@@ -7,6 +7,8 @@ import {
 } from "react-icons/bi";
 import { FaMediumM } from "react-icons/fa";
 
+import Image from "next/image";
+
 type ImageProps = {
     url?: string;
     src: string;
