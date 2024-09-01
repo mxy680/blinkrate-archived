@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from 'next/navigation';
 import {
   Input,
   Label,
@@ -24,6 +25,8 @@ const Form = (props: FormProps) => {
     ...props,
   } as Props;
 
+  const router = useRouter(); // Initialize the router
+
   const [firstNameInput, setFirstNameInput] = useState("");
   const [lastNameInput, setLastNameInput] = useState("");
 
@@ -33,16 +36,34 @@ const Form = (props: FormProps) => {
   const [messageInput, setMessageInput] = useState("");
   const [acceptTerms, setAcceptTerms] = useState<boolean | "indeterminate">(false);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log({
-      firstNameInput,
-      lastNameInput,
-      emailInput,
-      doctorEmailInput,
-      messageInput,
-      acceptTerms,
+
+    const res = await fetch("/api/addUser", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        firstName: firstNameInput,
+        lastName: lastNameInput,
+        email: emailInput,
+        doctorEmail: doctorEmailInput,
+        info: messageInput,
+      }),
     });
+
+    if (!res.ok) {
+      console.error("Failed to submit form");
+    }
+
+    const { id } = await res.json();
+
+    if (id) {
+      router.push(`/test/${id}`);
+    } else {
+      console.error("Failed to submit form");
+    }
   };
 
   return (
