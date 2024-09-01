@@ -7,9 +7,9 @@ import { FaRegLightbulb } from "react-icons/fa";
 import { MdOutlineChair } from "react-icons/md";
 import { IoGlassesOutline } from "react-icons/io5";
 
-const CameraVerification = () => {
+import Camera from "@/app/components/camera";
 
-    const [detected, setDetected] = useState(false);
+const CameraVerification = () => {
 
     return (
         <section className="px-[5%] py-14 md:py-18 lg:py-22">
@@ -38,6 +38,7 @@ const CameraVerification = () => {
                     </div>
                     <div>
                         {/* Webcam */}
+                        <Camera time={5} />
                     </div>
                 </div>
             </div>
