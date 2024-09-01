@@ -19,7 +19,7 @@ export default function NotFound() {
                         />
                     </div>
                     <div className='px-[5%] py-16'>
-                        <h1 className="mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl font-primary">Oops, this page doesn't exist.</h1>
+                        <h1 className="mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl font-primary">Oops, this page does not exist.</h1>
                         <div className="mt-6 flex gap-x-4 md:mt-8">
                             <Link href="/test">
                                 <button className='btn font-primary'>
