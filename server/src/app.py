@@ -18,7 +18,6 @@ detector = dlib.get_frontal_face_detector()
 
 @app.route('/locate', methods=['POST'])
 def locate():
-    print('test')
     if 'image' not in request.files:
         return jsonify({'error': 'No image found in the request'}), 400
     
@@ -62,13 +61,13 @@ def locate():
         x = landmarks.part(i).x
         y = landmarks.part(i).y
         left_eye.append((x, y))
-        cv2.circle(img, (x, y), 2, (0, 255, 0), -1)
+        cv2.circle(img, (x, y), 2, (112, 91, 14), -1)
 
     for i in range(42, 48):
         x = landmarks.part(i).x
         y = landmarks.part(i).y
         right_eye.append((x, y))
-        cv2.circle(img, (x, y), 2, (0, 255, 0), -1)
+        cv2.circle(img, (x, y), 2, (112, 91, 14), -1)
 
     # Encode the image as JPEG
     _, buffer = cv2.imencode('.jpg', img)

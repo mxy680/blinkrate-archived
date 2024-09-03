@@ -8,6 +8,7 @@
   --color-medium: #A3D0FF;
   --color-light: #efedfd;
   --color-light-hover: #e3e1f7;
+  --color-disabled: #979797;
 }
 
 /* Background */
@@ -86,6 +87,12 @@ body {
 
 .btn-secondary:hover {
   background-color: var(--color-light-hover);
+}
+
+.btn:disabled {
+  background-color: var(--color-disabled);
+  color: var(--color-dark);
+  cursor: not-allowed;
 }
 
 @keyframes move-arrow {

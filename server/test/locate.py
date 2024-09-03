@@ -6,7 +6,7 @@ from PIL import Image
 
 # Call the API to get the eye location (POST) (formdata)
 def get_eye_location():
-    url = 'http://localhost:5000/locate'
+    url = 'http://localhost:5001/locate'
     img_path = 'test/images/image.png'
     files = {'image': open(img_path, 'rb')}
     response = requests.post(url, files=files)

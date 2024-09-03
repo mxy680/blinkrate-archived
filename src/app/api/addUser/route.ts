@@ -1,10 +1,13 @@
 import supabaseClient from "@/config/supabase";
+import { NextResponse as Response } from "next/server";
 
 export async function POST(request: Request) {
     const { firstName, lastName, email, doctorEmail, info } = await request.json();
 
     if (!supabaseClient) {
-        throw new Error("supabaseClient is undefined");
+        throw Response.json({
+            error: "Failed to connect to the database",
+        });
     }
      
     const payload = {
@@ -22,11 +25,14 @@ export async function POST(request: Request) {
     const id = data?.[0]?.id;
 
     if (error) {
-        return new Response(error.message, { status: 500 });
+        return Response.json({
+            error: error.message,
+        });
     }
 
-    return new Response(JSON.stringify({ id }), {
-        headers: { "Content-Type": "application/json" },
+    return Response.json({
+        id,
+        message: "User added successfully",
     });
     
 }
