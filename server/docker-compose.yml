@@ -1,0 +1,15 @@
+services:
+  blinkrate-server:
+    container_name: blinkrate-server  # Name the container for easy identification
+    build:
+      context: .  # Use the current directory as the build context
+      dockerfile: Dockerfile  # Specify the Dockerfile if it's not named "Dockerfile"
+    ports:
+      - "5001:5000"  # Map port 5001 on the host to port 5000 in the container
+    network_mode: "host"
+    volumes:
+      - .:/usr/src/app  # Mount the current directory into the container for live code updates
+    environment:
+      - FLASK_ENV=development  # Example environment variable for Flask
+
+# docker-compose up --build -d (update the container)
